@@ -22,7 +22,7 @@ AFRAME.registerComponent('smoothcurvechart', {
         src: { type: 'asset', default: 'https://rawgit.com/fran-aguilar/a-framedc/master/examples/data/lib/scm-commits-filtered.json' }
     },
     onDataLoaded: utils.onDataLoaded,
-  
+
 
   /**
    * Set if component needs multiple instancing.
@@ -130,6 +130,7 @@ AFRAME.registerComponent('smoothcurvechart', {
   },
   addGrid: function (entityEl) {
       var gridEntity = document.createElement('a-entity');
+      var backgroundEntity = document.createElement('a-box');
       gridEntity.setAttribute('aframe-grid', {
           height: this.data.height,
           width: this.data.width,
@@ -137,7 +138,13 @@ AFRAME.registerComponent('smoothcurvechart', {
           xsteps: this.data.xsteps
       });
       gridEntity.setAttribute("position", { x: 0, y: 0, z: -this.data.depth / 2 });
+      backgroundEntity.setAttribute('height', this.data.height+1.0);
+      backgroundEntity.setAttribute('width', this.data.width+1.2);
+      backgroundEntity.setAttribute('depth', 0.02);
+      backgroundEntity.setAttribute("position", { x: 0.26, y: 0.63, z: (-this.data.depth / 2)-0.05 });
+
       this.el.appendChild(gridEntity);
+      this.el.appendChild(backgroundEntity);
   },
   addTitle: utils.addTitle,
   addEvents: utils.addEvents,
@@ -149,8 +156,8 @@ AFRAME.registerComponent('smoothcurvechart', {
           var txt = value;
           var curveSeg = 3;
           var texto = document.createElement("a-entity");
-          TEXT_WIDTH = 6;
-          //FIXME: depende del tamaño de letra...
+          TEXT_WIDTH = 2;
+          //FIXME: depende del tamaï¿½o de letra...
           var xPos = -0.7;
           //var yPos = BasicChart._coords.y + step +  0.36778332145402703 / 2;
           var yPos = step;
