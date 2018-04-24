@@ -398,8 +398,8 @@ AFRAME.registerComponent('aframe-grid', {
     };
     var addTitle = function () {
         var titleEntity = document.createElement("a-entity");
-        titleEntity.setAttribute("title", { caption: this.data.title, width: Math.max(this.data.width / 2, 6) });
-        titleEntity.setAttribute("position", { x: this.data.width / 2, y: this.data.height + 1, z: 0 });
+        titleEntity.setAttribute("title", { caption: this.data.title, width: Math.max(this.data.width / 2, 2) });
+        titleEntity.setAttribute("position", { x: (this.data.width / 2)-0.1, y: this.data.height+0.25, z: 0 });
         this.el.appendChild(titleEntity);
     };
     var COLORS = ["#33cc33",
@@ -2536,7 +2536,7 @@ AFRAME.registerComponent('smoothcurvechart', {
       });
       gridEntity.setAttribute("position", { x: 0, y: 0, z: -this.data.depth / 2 });
       backgroundEntity.setAttribute('height', this.data.height+1.0);
-      backgroundEntity.setAttribute('width', this.data.width+1.2);
+      backgroundEntity.setAttribute('width', this.data.width+1);
       backgroundEntity.setAttribute('depth', 0.02);
       backgroundEntity.setAttribute("position", { x: 0.26, y: 0.63, z: (-this.data.depth / 2)-0.05 });
 
@@ -2555,7 +2555,7 @@ AFRAME.registerComponent('smoothcurvechart', {
           var texto = document.createElement("a-entity");
           TEXT_WIDTH = 2;
           //FIXME: depende del tama�o de letra...
-          var xPos = -0.7;
+          var xPos = -0.4;
           //var yPos = BasicChart._coords.y + step +  0.36778332145402703 / 2;
           var yPos = step;
           texto.setAttribute("text", {
