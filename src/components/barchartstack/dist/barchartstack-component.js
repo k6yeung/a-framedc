@@ -644,10 +644,10 @@
 
 	    };
 	    var addTitle = function () {
-	        var titleEntity = document.createElement("a-entity");
-	        titleEntity.setAttribute("title", { caption: this.data.title, width: Math.max(this.data.width / 2, 6) });
-	        titleEntity.setAttribute("position", { x: this.data.width / 2, y: this.data.height + 1, z: 0 });
-	        this.el.appendChild(titleEntity);
+            var titleEntity = document.createElement("a-entity");
+            titleEntity.setAttribute("title", { caption: this.data.title, width: Math.max(this.data.width / 2, 2) });
+            titleEntity.setAttribute("position", { x: (this.data.width / 2)-0.1, y: this.data.height+0.25, z: 0 });
+            this.el.appendChild(titleEntity);
 	    };
 	    return {
 	        onDataLoaded: onDataLoaded,
